@@ -24,7 +24,7 @@ class RouteOptimizer:
     def __init__(self, waypoints: Waypoints):
         self.stop_fix_type = "Departure"
         self.waypoints = waypoints
-
+        
     def get_stop_fix_type(self):
         if self.stop_fix_type == "Departure":
             if self.stop_fix_type == "Arrival":

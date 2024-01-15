@@ -9,6 +9,17 @@ from src.repo.log.__init__ import handler, Log
 from src.service.tsp.a_star import *
 from src.service.tsp.q import *
 
+class RouteOptimizer(ABC):
+    @abstractmethod
+    def optimize_route(self, matrix) -> Tuple[int, List[int]]:
+        pass
+
+
+class RouteOptimizer(ABC):
+    @abstractmethod
+    def optimize_route(self, matrix, start_fixed=False, end_fixed=False) -> Tuple[int, List[int]]:
+        pass
+
 
 class RouteOptimizer(ABC):
     @abstractmethod
@@ -24,8 +35,7 @@ def create_data_model(matrix):
     data['depot'] = 0
 
     return data
-
-
+  
 class OrToolsRouteOptimizer(RouteOptimizer):
     def __init__(self, logger):
         self.logger = logger if logger else handler
